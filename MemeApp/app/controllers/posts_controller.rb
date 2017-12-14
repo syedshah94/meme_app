@@ -19,7 +19,7 @@ class PostsController < ApiController
     if post.save
       render json: {
         message: 'ok',
-        monster: post,
+        post: post,
       }
     else
       render json: {message: 'Could not create post'}
