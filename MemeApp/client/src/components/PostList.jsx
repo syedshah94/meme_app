@@ -10,7 +10,8 @@ class PostList extends Component {
   }
 
   componentDidMount() {
-    fetch('/posts')
+    setTimeout(() => {
+      fetch('/posts')
       .then(res => res.json())
       .then(res => {
         console.log(res);
@@ -19,6 +20,8 @@ class PostList extends Component {
           postListLoaded: true
         })
       }).catch(err => console.log(err));
+    }, 2800);
+
   }
 
   renderPosts() {
@@ -41,7 +44,7 @@ class PostList extends Component {
     return (
       <div className="post-list">
         {this.state.postListLoaded ?
-          this.renderPosts() : <p>Loading...</p>
+          this.renderPosts() : <img src='https://cdn.dribbble.com/users/503653/screenshots/3143656/fluid-loader.gif' />
         }
       </div>
     )
