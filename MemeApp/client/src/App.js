@@ -67,8 +67,8 @@ class App extends Component {
       <Router>
         <div className="App">
           <div className="nav">
-            <Link to='/login'>Login</Link> {this.state.auth ? <p></p> : <Link to='/register'>Register</Link>}
-            <Link to='/dash'>Dash</Link>
+            <Link to='/login'>Login</Link> {this.state.auth ? <br /> : <Link to='/register'>Register</Link>}
+            <Link to='/dash'>Dash</Link><br />
             <Link to='/posts'>Feed</Link>
           </div>
 
