@@ -27,7 +27,11 @@ class PostList extends Component {
         <div className="post" key={post.id}>
           <h2>{post.title}</h2>
           <p>{post.description}</p>
-          <img src={`${post.url}`} width={500} height={400} mode='fit' />
+          {
+            post.url ?
+            <img src={`${post.url}`} width={500} height={400} mode='fit' />
+            : <p>No Image</p>
+          }
         </div>
       )
     })
