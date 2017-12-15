@@ -29,7 +29,7 @@ class PostList extends Component {
           <p>{post.description}</p>
           {
             post.url ?
-            <img src={`${post.url}`} width={500} height={400} mode='fit' />
+            <img src={`${post.url}`} alt="" width={500} height={400} mode='fit' />
             : <p>No Image</p>
           }
         </div>

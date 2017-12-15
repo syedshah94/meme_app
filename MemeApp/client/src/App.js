@@ -27,7 +27,7 @@ class App extends Component {
       }
     }).then(res => res.json())
     .then(res => {
-      console.log(res);
+      console.log(res)
       if (res.token) {
         Auth.authenticateToken(res.token);
         this.setState({
@@ -44,7 +44,9 @@ class App extends Component {
       <Router>
         <div className="App">
           <Route exact path="/posts" render={() => <PostList />} />
-
+{/*          <Route exact path="/register" render={() => this.state.auth ?
+            <Dashboard /> : <RegisterForm />
+          } />*/}
           <Route exact path="/register" render={() => <RegisterForm
             handleRegisterSubmit={this.handleRegisterSubmit}
           />} />
