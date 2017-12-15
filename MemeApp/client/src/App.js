@@ -6,6 +6,7 @@ import Auth from './modules/Auth'
 import PostList from './components/PostList';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
+import Dashboard from './components/Dashboard'
 
 class App extends Component {
   constructor() {
@@ -65,20 +66,32 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
+          <div className="nav">
+            <Link to='/login'>Login</Link> {this.state.auth ? <p></p> : <Link to='/register'>Register</Link>}
+            <Link to='/dash'>Dash</Link>
+            <Link to='/posts'>Feed</Link>
+          </div>
+
           <Route exact path="/posts" render={() => <PostList />} />
-{/*          <Route exact path="/register" render={() => this.state.auth ?
-            <Dashboard /> : <RegisterForm />
-          } />*/}
-          <Route exact path="/register" render={() => <RegisterForm
-            handleRegisterSubmit={this.handleRegisterSubmit}/>}
+
+          <Route exact path="/register" render={() => (this.state.auth) ?
+            <Redirect to='/dash' />
+            : <RegisterForm handleRegisterSubmit={this.handleRegisterSubmit}/>}
           />
-          <Route exact path="/login" render={() => <LoginForm
-            handleLoginSubmit={this.handleLoginSubmit}/> }
+
+          <Route exact path="/login" render={() => (this.state.auth) ?
+            <Redirect to='/dash' />
+            : <RegisterForm handleRegisterLoginSubmit={this.handleLoginSubmit}/>}
           />
+
+          <Route exact path='/dash' render={() => <Dashboard />} />
         </div>
       </Router>
     );
   }
 }
+
+
+
 
 export default App;
