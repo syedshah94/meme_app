@@ -16,6 +16,7 @@ class App extends Component {
     }
     this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
+    this.handleLogout = this.handleLogout.bind(this);
   }
 
   handleRegisterSubmit(e, data) {
@@ -62,6 +63,21 @@ class App extends Component {
     }).catch(err => console.log(err));
   }
 
+  handleLogout() {
+    fetch('/logout', {
+      method: 'DELETE',
+      headers: {
+        token: Auth.getToken(),
+        'Authorization': `Token ${Auth.getToken()}`
+      }
+    }).then(res => {
+      Auth.deauthenticateUser();
+      this.setState({
+        auth: Auth.isUserAuthenticated(),
+      })
+    }).catch(err => console.log(err));
+  }
+
   render() {
     return (
       <Router>
@@ -70,6 +86,7 @@ class App extends Component {
             <Link to='/login'>Login</Link> {this.state.auth ? <br /> : <Link to='/register'>Register</Link>}
             <Link to='/dash'>Dash</Link><br />
             <Link to='/posts'>Feed</Link>
+            <span onClick={this.handleLogout}>Logout</span>
           </div>
 
           <Route exact path="/posts" render={() => <PostList />} />
@@ -81,7 +98,7 @@ class App extends Component {
 
           <Route exact path="/login" render={() => (this.state.auth) ?
             <Redirect to='/dash' />
-            : <RegisterForm handleRegisterLoginSubmit={this.handleLoginSubmit}/>}
+            : <LoginForm handleLoginSubmit={this.handleLoginSubmit}/>}
           />
 
           <Route exact path='/dash' render={() => <Dashboard />} />
