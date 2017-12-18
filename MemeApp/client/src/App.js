@@ -8,6 +8,10 @@ import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
 import Dashboard from './components/Dashboard';
 
+// Bulma.io
+import { Button } from 'reactbulma'
+
+
 class App extends Component {
   constructor() {
     super();
@@ -85,16 +89,15 @@ class App extends Component {
       <Router>
         <div className="App">
           <div className="nav">
-            {/*if auth is true then dont display 'login' or 'register'*/}
+            <Link to='/dash'><Button large warning>Dash</Button></Link>
+            <Link to='/posts'><Button large primary>Feed</Button></Link>
 
             {this.state.auth ?
-              <Link to='/' onClick={this.handleLogout}>Logout</Link> :
-              <Link to='/login'>Login</Link>
+              <Link to='/' onClick={this.handleLogout}><Button large danger>Logout</Button></Link> :
+              <Link to='/login'><Button large success>Login</Button></Link>
             }
 
-            {this.state.auth ? <br /> : <Link to='/register'>Register</Link>}
-            <Link to='/dash'>Dash</Link><br />
-            <Link to='/posts'>Feed</Link>
+            {this.state.auth ? <span></span> : <Link to='/register'><Button large info>Register</Button></Link>}
           </div>
 
           <Route exact path="/posts" render={() => <PostList />} />
