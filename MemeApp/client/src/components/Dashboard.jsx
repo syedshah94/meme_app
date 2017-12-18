@@ -57,6 +57,11 @@ class Dashboard extends Component {
     return (
       <div className="dash">
         <AddPostForm addPost={this.addPost} />
+
+        <h1>Hello {this.state.current_user}</h1>
+        <h1>You have {this.state.myPosts.length} posts!</h1>
+
+        {/*Display user's posts*/}
         {this.state.myPosts ?
           this.state.myPosts.map(post => {
             return (<h1 key={post.id}>{post.title}</h1>)
@@ -64,9 +69,6 @@ class Dashboard extends Component {
           : <p>Loading...</p>
         }
 
-        <h1>Hello {this.state.current_user}</h1>
-        <h1>You got {this.state.myPosts.length} posts, ma guy! <br />Go to the feed to create a post!</h1>
-        <img src={`${this.state.myPosts.url}`} alt="" width={500} height={400} mode='fit' />
       </div>
     )
   }
