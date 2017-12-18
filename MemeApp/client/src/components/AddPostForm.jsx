@@ -1,7 +1,5 @@
 import React, { Component } from 'react'
 
-import Auth from '../modules/Auth'
-
 class AddPostForm extends Component {
   constructor(props){
     super(props);

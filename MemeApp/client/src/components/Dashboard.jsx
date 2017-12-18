@@ -30,6 +30,7 @@ class Dashboard extends Component {
         this.setState({
           current_user: res.user.username,
           myPosts: res.posts,
+          postsLoaded: true,
         })
       }).catch(err => console.log(err));
   }
@@ -62,6 +63,7 @@ class Dashboard extends Component {
           })
           : <p>Loading...</p>
         }
+
         <h1>Hello {this.state.current_user}</h1>
         <h1>You got {this.state.myPosts.length} posts, ma guy! <br />Go to the feed to create a post!</h1>
         <img src={`${this.state.myPosts.url}`} alt="" width={500} height={400} mode='fit' />

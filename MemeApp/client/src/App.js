@@ -83,10 +83,18 @@ class App extends Component {
       <Router>
         <div className="App">
           <div className="nav">
-            <Link to='/login'>Login</Link> {this.state.auth ? <br /> : <Link to='/register'>Register</Link>}
+
+            {/*if auth is true then dont display 'login' or 'register'*/}
+
+            {this.state.auth ?
+              <Link to='/' onClick={this.handleLogout}>Logout</Link> :
+              <Link to='/login'>Login</Link>
+            }
+
+            {this.state.auth ? <br /> : <Link to='/register'>Register</Link>}
             <Link to='/dash'>Dash</Link><br />
             <Link to='/posts'>Feed</Link>
-            <span onClick={this.handleLogout}>Logout</span>
+
           </div>
 
           <Route exact path="/posts" render={() => <PostList />} />
@@ -102,6 +110,7 @@ class App extends Component {
           />
 
           <Route exact path='/dash' render={() => <Dashboard />} />
+
         </div>
       </Router>
     );

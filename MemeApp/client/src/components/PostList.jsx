@@ -1,8 +1,6 @@
 // This is the page for the news feed
 import React, { Component } from 'react';
 
-import Auth from '../modules/Auth'
-
 class PostList extends Component {
   constructor(props) {
     super(props);
@@ -47,7 +45,7 @@ class PostList extends Component {
     return (
       <div className="post-list">
         {this.state.postListLoaded ?
-          this.renderPosts() : <img src='https://cdn.dribbble.com/users/503653/screenshots/3143656/fluid-loader.gif' />
+          this.renderPosts() : <img src='https://cdn.dribbble.com/users/503653/screenshots/3143656/fluid-loader.gif' alt='' />
         }
       </div>
     )
