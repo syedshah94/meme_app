@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 
 import Auth from '../modules/Auth'
+import AddPostForm from './AddPostForm'
 
 class Dashboard extends Component {
   constructor(props){
@@ -13,6 +14,10 @@ class Dashboard extends Component {
   }
 
   componentDidMount() {
+    this.getUserPosts();
+  }
+
+  getUserPosts() {
     fetch('/profile', {
       method: 'GET',
       headers:{
@@ -29,9 +34,28 @@ class Dashboard extends Component {
       }).catch(err => console.log(err));
   }
 
+  addPost(e, data) {
+    fetch('/posts', {
+      method: "POST",
+      headers: {
+        'Content-Type': 'application.json',
+        token: Auth.getToken(),
+        'Authorization': `Token ${Auth.getToken()}`
+      },
+      body: JSON.stringify({
+        post: data,
+      }),
+    }).then(res => res.json())
+      .then(res => {
+        console.log(res);
+        this.getUserPosts();
+      }).catch(err => console.log(err));
+  }
+
   render() {
     return (
       <div className="dash">
+        <AddPostForm addPost={this.addPost} />
         {this.state.myPosts ?
           this.state.myPosts.map(post => {
             return (<h1 key={post.id}>{post.title}</h1>)
@@ -40,6 +64,7 @@ class Dashboard extends Component {
         }
         <h1>Hello {this.state.current_user}</h1>
         <h1>You got {this.state.myPosts.length} posts, ma guy! <br />Go to the feed to create a post!</h1>
+        <img src={`${this.state.myPosts.url}`} alt="" width={500} height={400} mode='fit' />
       </div>
     )
   }

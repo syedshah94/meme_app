@@ -25,10 +25,6 @@ Post.create!(user: j, title: 'Dr. React', description: 'A React Post', url: 'htt
 Post.create!(user: j, title: 'Dr. Flexbox', description: 'A Flexbox Post')
 Post.create!(user: j, title: 'Dr. Kitten', description: 'A Kitten Post')
 
-# bell posts
-# bell has no posts :(
-
-
 # dom posts
 Post.create!(user: dom, title: 'DOM Post', description: 'Document Object Post', url: 'https://funnymemes.co/memes/Santa_Facebook_Status_Funny_Meme.jpg')
 Post.create!(user: dom, title: 'Virtual DOM Post', description: 'Like the DOM Post, but virtualized', url: 'https://funnymemes.co/memes/Soon_Funny_Meme.jpg')

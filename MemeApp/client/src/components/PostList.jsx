@@ -1,11 +1,15 @@
+// This is the page for the news feed
 import React, { Component } from 'react';
+
+import Auth from '../modules/Auth'
 
 class PostList extends Component {
   constructor(props) {
     super(props);
     this.state = {
       postList: null,
-      postListLoaded: false
+      postListLoaded: false,
+      current_user: null,
     }
   }
 
@@ -21,7 +25,6 @@ class PostList extends Component {
         })
       }).catch(err => console.log(err));
     }, 2800);
-
   }
 
   renderPosts() {
