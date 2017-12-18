@@ -39,7 +39,7 @@ class Dashboard extends Component {
     fetch('/posts', {
       method: "POST",
       headers: {
-        'Content-Type': 'application.json',
+        'Content-Type': 'application/json',
         token: Auth.getToken(),
         'Authorization': `Token ${Auth.getToken()}`
       },
@@ -64,7 +64,12 @@ class Dashboard extends Component {
         {/*Display user's posts*/}
         {this.state.myPosts ?
           this.state.myPosts.map(post => {
-            return (<h1 key={post.id}>{post.title}</h1>)
+            return (
+              <div key={post.id}>
+                <h1>{post.title}</h1>
+                <img src={post.url} alt='' />
+              </div>
+            )
           })
           : <p>Loading...</p>
         }

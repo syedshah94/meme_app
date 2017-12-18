@@ -6,7 +6,7 @@ import Auth from './modules/Auth'
 import PostList from './components/PostList';
 import RegisterForm from './components/RegisterForm';
 import LoginForm from './components/LoginForm';
-import Dashboard from './components/Dashboard'
+import Dashboard from './components/Dashboard';
 
 class App extends Component {
   constructor() {
@@ -78,12 +78,13 @@ class App extends Component {
     }).catch(err => console.log(err));
   }
 
+  // Navbar
+
   render() {
     return (
       <Router>
         <div className="App">
           <div className="nav">
-
             {/*if auth is true then dont display 'login' or 'register'*/}
 
             {this.state.auth ?
@@ -94,7 +95,6 @@ class App extends Component {
             {this.state.auth ? <br /> : <Link to='/register'>Register</Link>}
             <Link to='/dash'>Dash</Link><br />
             <Link to='/posts'>Feed</Link>
-
           </div>
 
           <Route exact path="/posts" render={() => <PostList />} />
