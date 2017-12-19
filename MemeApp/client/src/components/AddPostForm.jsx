@@ -53,7 +53,8 @@ class AddPostForm extends Component {
 
         <Field groupedCentered onClick={(e) => this.props.addPost(e,this.state)} >
           <Control>
-            <Button primary type="submit" value="Create Post">Create Post</Button>
+            {/*<Button primary type="submit" value="Create Post">Create Post</Button>*/}
+            <Input primary groupedCentered type="submit" value="Create Post" />
           </Control>
         </Field>
       </Section>

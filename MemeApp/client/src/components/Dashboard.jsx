@@ -42,6 +42,7 @@ class Dashboard extends Component {
   }
 
   addPost(e, data) {
+    if(data.title) {
     fetch('/posts', {
       method: "POST",
       headers: {
@@ -57,6 +58,8 @@ class Dashboard extends Component {
         console.log(res);
         this.getUserPosts();
       }).catch(err => console.log(err));
+    }
+
   }
 
   editPost(e, data, id) {
