@@ -30,7 +30,7 @@ class PostList extends Component {
       return (
         <div className="post" key={post.id}>
         <h1>{post.username}</h1>
-          <h2>{post.title}</h2>
+          <h2><b>{post.title}</b></h2>
           <p>{post.description}</p>
           {
             post.url ?

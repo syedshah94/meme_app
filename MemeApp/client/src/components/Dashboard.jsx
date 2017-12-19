@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Section, Textarea } from 'reactbulma'
 
 import Auth from '../modules/Auth'
 import AddPostForm from './AddPostForm'
@@ -99,17 +100,19 @@ class Dashboard extends Component {
 
   render() {
     return (
-      <div className="dash">
+      <Section className="dash">
         <AddPostForm addPost={this.addPost} />
 
-        <h1>Hello {this.state.current_user}</h1>
-        <h1>You have {this.state.myPosts.length} posts!</h1>
+        <Section>
+          <h1>Hello {this.state.current_user}</h1>
+          <h1>You have {this.state.myPosts.length} posts!</h1>
+        </Section>
 
         {/*Display user's posts*/}
         {this.state.myPosts ?
           this.state.myPosts.map(post => {
             return (
-              <div key={post.id}>
+              <Section key={post.id}>
                 <h1><b>{post.title}</b></h1>
                 <img src={post.url} alt='' />
                 <h3>{post.description}</h3>
@@ -119,12 +122,12 @@ class Dashboard extends Component {
               {this.state.showComponent ? <EditPostForm post_id={post.id} showComponent={this.state.showComponent} editPost={this.editPost} /> : null}
 
                 <button onClick={() => this.deletePost(post.id)}>Delete</button>
-              </div>
+              </Section>
             )
           })
           : <p>Loading...</p>
         }
-      </div>
+      </Section>
     )
   }
 }
