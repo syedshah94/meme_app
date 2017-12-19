@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import { Field, Control, Input, Button, Section, Icon} from 'reactbulma'
+import { Field, Control, Input, Button, Section} from 'reactbulma'
 
 
 class LoginForm extends Component {
