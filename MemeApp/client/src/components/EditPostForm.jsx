@@ -22,7 +22,7 @@ class EditPostForm extends Component {
   render() {
     return (
       <div className="form">
-        <form onSubmit={(e) => this.props.editPost(e, this.state)} >
+        <form onSubmit={(e) => this.props.editPost(e, this.state, this.props.post_id)} >
           <input type="text" name="title" placeholder="Title" value={this.state.title} onChange={this.handleChange} />
           <input type="text" name="description" placeholder="Description" value={this.state.description} onChange={this.handleChange} />
           <input type="submit" value="Edit Post" />

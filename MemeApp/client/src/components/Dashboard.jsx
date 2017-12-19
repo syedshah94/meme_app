@@ -116,7 +116,7 @@ class Dashboard extends Component {
 
               {/*Create Edit Functionality*/}
               {this.state.showComponent ? null : <button onClick={this._onButtonClick}>Edit</button>}
-              {this.state.showComponent ? <EditPostForm showComponent={this.state.showComponent} editPost={this.editPost} /> : null}
+              {this.state.showComponent ? <EditPostForm post_id={post.id} showComponent={this.state.showComponent} editPost={this.editPost} /> : null}
 
                 <button onClick={() => this.deletePost(post.id)}>Delete</button>
               </div>
