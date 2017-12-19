@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-
 import { Field, Control, Input, Button, Section} from 'reactbulma'
 
 class RegisterForm extends Component {
@@ -25,23 +24,39 @@ class RegisterForm extends Component {
   render() {
     return (
       <Section small className="form">
-        <h1>Meme Review</h1>
-        <form onSubmit = {(e) => this.props.handleRegisterSubmit(e, this.state)}>
-          <input type="text" name="username" placeholder="username" value={this.state.username}
-            onChange={this.handleChange} />
-          <input type="password" name="password" placeholder="password" value={this.state.password}
-            onChange={this.handleChange} />
-          <input type="text" name="name" placeholder="name" value={this.state.name}
-            onChange={this.handleChange} />
-          <input type="email" name="email" placeholder="email" value={this.state.email}
-            onChange={this.handleChange} />
-          <input type="submit" value="Register" />
-        </form>
+        <label className="label">Username</label>
+        <Field groupedCentered>
+          <Control>
+            <Input name="username" type="text" value={this.state.username} placeholder="Text input" onChange={this.handleChange}/>
+          </Control>
+        </Field>
 
+        <label className="label">Password</label>
+        <Field groupedCentered>
+          <Control>
+            <Input name="password" type="password" value={this.state.password} placeholder="Password input" onChange={this.handleChange}/>
+          </Control>
+        </Field>
 
+        <label className="label">Name</label>
+        <Field groupedCentered>
+          <Control>
+            <Input name="name" type="text" value={this.state.name} placeholder="Text input" onChange={this.handleChange}/>
+          </Control>
+        </Field>
 
+        <label className="label">Email</label>
+        <Field groupedCentered>
+          <Control>
+            <Input name="email" type="email" value={this.state.email} placeholder="Email Input" onChange={this.handleChange}/>
+          </Control>
+        </Field>
 
-
+        <Field groupedCentered onClick={(e) => this.props.handleRegisterSubmit(e, this.state)}>
+          <Control>
+            <Button medium info type="submit" value="Login">Register</Button>
+          </Control>
+        </Field>
       </Section>
     )
   }

@@ -9,8 +9,7 @@ import LoginForm from './components/LoginForm';
 import Dashboard from './components/Dashboard';
 
 // Bulma.io
-import { Button } from 'reactbulma'
-
+import { Button, Section } from 'reactbulma'
 
 class App extends Component {
   constructor() {
@@ -88,16 +87,14 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <div className="App">
+        <Section medium className="App">
           <div className="nav">
-            <Link to='/dash'><Button large outlined warning>Dash</Button></Link>
+            {this.state.auth ? <Link to='/dash'><Button large outlined warning>Dash</Button></Link> : null}
             <Link to='/posts'><Button large outlined primary>Feed</Button></Link>
-
             {this.state.auth ?
               <Link to='/' onClick={this.handleLogout}><Button large outlined danger>Logout</Button></Link> :
               <Link to='/login'><Button large outlined success>Login</Button></Link>
             }
-
             {this.state.auth ? <span></span> : <Link to='/register'><Button large outlined info>Register</Button></Link>}
           </div>
 
@@ -115,7 +112,7 @@ class App extends Component {
 
           <Route exact path='/dash' render={() => <Dashboard />} />
 
-        </div>
+        </Section>
       </Router>
     );
   }

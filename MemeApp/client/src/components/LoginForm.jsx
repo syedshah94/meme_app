@@ -40,7 +40,7 @@ class LoginForm extends Component {
 
       <Field groupedCentered onClick={(e) => this.props.handleLoginSubmit(e, this.state)}>
         <Control>
-          <Button medium primary type="submit" value="Login">Submit</Button>
+          <Button medium success type="submit" value="Login">Submit</Button>
         </Control>
       </Field>
     </Section>
