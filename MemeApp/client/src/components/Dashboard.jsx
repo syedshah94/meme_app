@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Section, Title, SubTitle } from 'reactbulma'
+import { Field, Control, Input, Textarea, Button, Section, Title, SubTitle} from 'reactbulma'
 
 import Auth from '../modules/Auth'
 import AddPostForm from './AddPostForm'
@@ -130,10 +130,10 @@ class Dashboard extends Component {
                 <SubTitle is='4' spaced>{post.description}</SubTitle>
 
               {/*Create Edit Functionality*/}
-              {this.state.showComponent ? null : <button onClick={this._onButtonClick}>Edit</button>}
+              {this.state.showComponent ? null : <Button info onClick={this._onButtonClick}>Edit</Button>}
               {this.state.showComponent ? <EditPostForm post_id={post.id} showComponent={this.state.showComponent} editPost={this.editPost} /> : null}
 
-                <button onClick={() => this.deletePost(post.id)}>Delete</button>
+                <Button danger onClick={() => this.deletePost(post.id)}>Delete</Button>
               </Section>
             )
           })

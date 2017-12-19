@@ -19,10 +19,12 @@ class App extends Component {
     super();
     this.state = {
       auth: Auth.isUserAuthenticated(),
+      show: false,
     }
     this.handleRegisterSubmit = this.handleRegisterSubmit.bind(this);
     this.handleLoginSubmit = this.handleLoginSubmit.bind(this);
     this.handleLogout = this.handleLogout.bind(this);
+    this.handleClick = this.handleClick.bind(this);
   }
 
   handleRegisterSubmit(e, data) {
@@ -84,6 +86,17 @@ class App extends Component {
     }).catch(err => console.log(err));
   }
 
+  handleClick() {
+    this.setState({
+      show: !this.state.show
+    });
+    setTimeout(() => {
+      this.setState({
+        show: !this.state.show
+      })
+    }, 2000)
+  }
+
   render() {
     return (
       <Router>
@@ -100,11 +113,14 @@ class App extends Component {
               </Container>
             </Hero.Body>
           </Hero>
+
+          <ToggleDisplay show={this.state.show}>Sheesh, I Thought You Wouldn't Leave...</ToggleDisplay>
+        {/*Navigation*/}
           <div className="nav">
             {this.state.auth ? <Link to='/dash'><Button large outlined warning>Dash</Button></Link> : null}
             <Link to='/posts'><Button large outlined primary>Feed</Button></Link>
             {this.state.auth ?
-              <Link to='/' onClick={this.handleLogout}><Button large outlined danger>Logout</Button></Link> :
+              <Link to='/' onClick={this.handleLogout}><Button large outlined danger onClick={(e) => this.handleClick()}>Logout</Button></Link> :
               <Link to='/login'><Button large outlined success>Login</Button></Link>
             }
             {this.state.auth ? <span></span> : <Link to='/register'><Button large outlined info>Register</Button></Link>}

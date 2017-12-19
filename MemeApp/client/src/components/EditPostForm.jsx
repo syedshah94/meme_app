@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { Field, Control, Input, Textarea, Button, Section} from 'reactbulma'
 
 class EditPostForm extends Component {
   constructor(props){
@@ -22,11 +23,29 @@ class EditPostForm extends Component {
   render() {
     return (
       <div className="form">
-        <form onSubmit={(e) => this.props.editPost(e, this.state, this.props.post_id)} >
-          <input type="text" name="title" placeholder="Title" value={this.state.title} onChange={this.handleChange} />
-          <input type="text" name="description" placeholder="Description" value={this.state.description} onChange={this.handleChange} />
-          <input type="submit" value="Edit Post" />
-        </form>
+        <Field>
+          <Control>
+            <Input primary name="title" type="text" value={this.state.title} placeholder="Title" onChange={this.handleChange}/>
+          </Control>
+        </Field>
+
+        <Field>
+          <Control>
+            <Textarea info name="description" type="text" value={this.state.description} placeholder="Description" onChange={this.handleChange}/>
+          </Control>
+        </Field>
+
+        <Field>
+          <Control>
+            <Textarea info name="url" type="text" value={this.state.url} placeholder="URL" onChange={this.handleChange}/>
+          </Control>
+        </Field>
+
+        <Field groupedCentered onClick={(e) => this.props.editPost(e, this.state, this.props.post_id)} >
+          <Control>
+            <Button primary type="submit" value="Change Post">Change Post Entirely</Button>
+          </Control>
+        </Field>
       </div>
     )
   }

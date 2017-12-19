@@ -9,9 +9,10 @@ class LoginForm extends Component {
     this.state = {
       username: "",
       password: "",
-      show: false,
+      logout: false,
     }
     this.handleChange = this.handleChange.bind(this);
+    this.handleClickLogin = this.handleClickLogin.bind(this);
   }
 
   handleChange(e) {
@@ -22,16 +23,16 @@ class LoginForm extends Component {
     });
   }
 
-  handleClick() {
+  handleClickLogin() {
     this.setState({
-      show: true,
+      logout: true,
     });
   }
 
   render() {
     return (
     <Section medium className="form">
-      <ToggleDisplay show={this.state.show}>You Have Displeased Me With Your Incorrent User/Password Combination :( </ToggleDisplay>
+      <ToggleDisplay show={this.state.logout}>You Have Displeased Me With Your Incorrent User/Password Combination :(</ToggleDisplay>
       <label className="label">Username</label>
       <Field groupedCentered>
         <Control>
@@ -48,7 +49,7 @@ class LoginForm extends Component {
 
       <Field groupedCentered onClick={(e) => this.props.handleLoginSubmit(e, this.state)}>
         <Control>
-          <Button medium success type="submit" value="Login" onClick={(e) => this.handleClick()}>Submit</Button>
+          <Button medium success type="submit" value="Login" onClick={(e) => this.handleClickLogin()}>Submit</Button>
         </Control>
       </Field>
     </Section>
