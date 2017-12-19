@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 import Auth from '../modules/Auth'
 import AddPostForm from './AddPostForm'
-
+import EditPostForm from './EditPostForm'
 
 
 class Dashboard extends Component {
@@ -13,6 +13,8 @@ class Dashboard extends Component {
       postsLoaded: false,
       current_user: null,
     }
+
+    this.deletePost = this.deletePost.bind(this);
   }
 
   componentDidMount() {
@@ -105,8 +107,8 @@ class Dashboard extends Component {
                 <img src={post.url} alt='' />
                 <h3>{post.description}</h3>
 
-                <input type="submit" value="Edit" onClick={(e) => (console.log('button working'))} />
-                <input type="submit" value="Delete" />
+                <button onClick={() => <EditPostForm editPost={this.editPost} />}>Edit</button>
+                <button onClick={() => this.deletePost(post.id)}>Delete</button>
               </div>
             )
           })

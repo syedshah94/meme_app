@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 
-class AddPostForm extends Component {
+class EditPostForm extends Component {
   constructor(props){
     super(props);
     this.state = {
@@ -22,15 +22,14 @@ class AddPostForm extends Component {
   render() {
     return (
       <div className="form">
-        <form onSubmit={(e) => this.props.addPost(e,this.state)} >
+        <form onSubmit={(e) => this.props.editPost(e, this.state)} >
           <input type="text" name="title" placeholder="Title" value={this.state.title} onChange={this.handleChange} />
           <input type="text" name="description" placeholder="Description" value={this.state.description} onChange={this.handleChange} />
-          <input type="text" name="url" placeholder="Image Url" value={this.state.url} onChange={this.handleChange} />
-          <input type="submit" value="Create Post" />
+          <input type="submit" value="Edit Post" />
         </form>
       </div>
     )
   }
 }
 
-export default AddPostForm;
+export default EditPostForm;
