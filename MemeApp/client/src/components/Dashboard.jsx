@@ -16,6 +16,9 @@ class Dashboard extends Component {
       showComponent: false,
     }
     this._onButtonClick = this._onButtonClick.bind(this);
+    this.getUserPosts = this.getUserPosts.bind(this);
+    this.addPost = this.addPost.bind(this);
+    this.editPost = this.editPost.bind(this);
     this.deletePost = this.deletePost.bind(this);
   }
 
@@ -42,6 +45,7 @@ class Dashboard extends Component {
   }
 
   addPost(e, data) {
+    e.preventDefault();
     if(data.title) {
     fetch('/posts', {
       method: "POST",
@@ -63,6 +67,7 @@ class Dashboard extends Component {
   }
 
   editPost(e, data, id) {
+    e.preventDefault();
     fetch(`/posts/${id}`, {
       method: "PUT",
       headers: {

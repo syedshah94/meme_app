@@ -23,16 +23,6 @@ class AddPostForm extends Component {
   render() {
     return (
       <Section className="form">
-      <div className="form">
-        <form onSubmit={(e) => this.props.addPost(e,this.state)} >
-          <input type="text" name="title" placeholder="Title" value={this.state.title} onChange={this.handleChange} />
-          <input type="text" name="description" placeholder="Description" value={this.state.description} onChange={this.handleChange} />
-          <input type="text" name="url" placeholder="Image Url" value={this.state.url} onChange={this.handleChange} />
-          <input type="submit" value="Create Post" />
-        </form>
-      </div>
-
-
         <Field>
           <Control>
             <Input primary name="title" type="text" value={this.state.title} placeholder="Title" onChange={this.handleChange}/>
@@ -53,8 +43,7 @@ class AddPostForm extends Component {
 
         <Field groupedCentered onClick={(e) => this.props.addPost(e,this.state)} >
           <Control>
-            {/*<Button primary type="submit" value="Create Post">Create Post</Button>*/}
-            <Input primary groupedCentered type="submit" value="Create Post" />
+            <Button primary type="submit" value="Create Post">Create Post</Button>
           </Control>
         </Field>
       </Section>
