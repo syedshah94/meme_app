@@ -84,20 +84,21 @@ class App extends Component {
 
   // Navbar
 
+
   render() {
     return (
       <Router>
         <div className="App">
           <div className="nav">
-            <Link to='/dash'><Button large warning>Dash</Button></Link>
-            <Link to='/posts'><Button large primary>Feed</Button></Link>
+            <Link to='/dash'><Button large outlined warning>Dash</Button></Link>
+            <Link to='/posts'><Button large outlined primary>Feed</Button></Link>
 
             {this.state.auth ?
-              <Link to='/' onClick={this.handleLogout}><Button large danger>Logout</Button></Link> :
-              <Link to='/login'><Button large success>Login</Button></Link>
+              <Link to='/' onClick={this.handleLogout}><Button large outlined danger>Logout</Button></Link> :
+              <Link to='/login'><Button large outlined success>Login</Button></Link>
             }
 
-            {this.state.auth ? <span></span> : <Link to='/register'><Button large info>Register</Button></Link>}
+            {this.state.auth ? <span></span> : <Link to='/register'><Button large outlined info>Register</Button></Link>}
           </div>
 
           <Route exact path="/posts" render={() => <PostList />} />

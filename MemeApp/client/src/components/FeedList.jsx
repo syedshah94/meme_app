@@ -26,9 +26,15 @@ class PostList extends Component {
   }
 
   renderPosts() {
+    const style = {
+      body: {
+        backgroundColor: '#FFFFF7',
+        height: '100%'
+      }
+    }
     return this.state.postList.map(post => {
       return (
-        <div className="post" key={post.id}>
+        <div className="post" key={post.id} style={style}>
           <h2>{post.title}</h2>
           <p>{post.description}</p>
           {

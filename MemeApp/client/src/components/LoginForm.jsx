@@ -1,5 +1,8 @@
 import React, { Component } from 'react';
 
+import { Field, Control, Input, Button, Section, Icon} from 'reactbulma'
+
+
 class LoginForm extends Component {
   constructor(props) {
     super(props);
@@ -20,15 +23,27 @@ class LoginForm extends Component {
 
   render() {
     return (
-    <div className="form">
-      <form onSubmit = {(e) => this.props.handleLoginSubmit(e, this.state)}>
-        <input type="text" name="username" placeholder="username" value={this.state.username}
-          onChange={this.handleChange} />
-        <input type="password" name="password" placeholder="password" value={this.state.password}
-          onChange={this.handleChange} />
-       <input type="submit" value="Login" />
-      </form>
-    </div>
+    <Section medium className="form">
+      <label className="label">Username</label>
+      <Field groupedCentered>
+        <Control>
+          <Input name="username" type="text" value={this.state.username} placeholder="Text input" onChange={this.handleChange}/>
+        </Control>
+      </Field>
+
+      <label className="label">Password</label>
+      <Field groupedCentered>
+        <Control>
+          <Input name="password" type="password" value={this.state.password} placeholder="Password input" onChange={this.handleChange}/>
+        </Control>
+      </Field>
+
+      <Field groupedCentered onClick={(e) => this.props.handleLoginSubmit(e, this.state)}>
+        <Control>
+          <Button medium primary type="submit" value="Login">Submit</Button>
+        </Control>
+      </Field>
+    </Section>
     )
   }
 }

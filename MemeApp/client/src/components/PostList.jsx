@@ -29,12 +29,14 @@ class PostList extends Component {
     return this.state.postList.map(post => {
       return (
         <div className="post" key={post.id}>
+        <h1>{post.username}</h1>
           <h2>{post.title}</h2>
           <p>{post.description}</p>
           {
             post.url ?
             <img src={`${post.url}`} alt="" width={500} height={400} mode='fit' />
             : <p>No Image</p>
+
           }
         </div>
       )

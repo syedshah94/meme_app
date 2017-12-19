@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 
+import { Field, Control, Input, Button, Section} from 'reactbulma'
+
 class RegisterForm extends Component {
   constructor(props) {
     super(props);
@@ -22,7 +24,7 @@ class RegisterForm extends Component {
 
   render() {
     return (
-      <div className="form">
+      <Section small className="form">
         <h1>Meme Review</h1>
         <form onSubmit = {(e) => this.props.handleRegisterSubmit(e, this.state)}>
           <input type="text" name="username" placeholder="username" value={this.state.username}
@@ -35,7 +37,12 @@ class RegisterForm extends Component {
             onChange={this.handleChange} />
           <input type="submit" value="Register" />
         </form>
-      </div>
+
+
+
+
+
+      </Section>
     )
   }
 }

@@ -55,6 +55,39 @@ class Dashboard extends Component {
       }).catch(err => console.log(err));
   }
 
+  editPost(e, data, id) {
+    fetch(`/posts/${id}`, {
+      method: "PUT",
+      headers: {
+        'Content-Type': 'application/json',
+        token: Auth.getToken(),
+        'Authorization': `Token ${Auth.getToken()}`
+      },
+      body: JSON.stringify({
+        post: data,
+      }),
+    }).then(res => res.json())
+      .then(res => {
+        console.log(res);
+        this.getUserPosts();
+      }).catch(err => console.log(err));
+  }
+
+    deletePost(id) {
+    fetch(`/posts/${id}`, {
+      method: "DELETE",
+      headers: {
+        'Content-Type': 'application/json',
+        token: Auth.getToken(),
+        'Authorization': `Token ${Auth.getToken()}`
+      },
+    }).then(res => res.json())
+      .then(res => {
+        console.log(res);
+        this.getUserPosts();
+      }).catch(err => console.log(err));
+  }
+
   render() {
     return (
       <div className="dash">
@@ -68,14 +101,17 @@ class Dashboard extends Component {
           this.state.myPosts.map(post => {
             return (
               <div key={post.id}>
-                <h1>{post.title}</h1>
+                <h1><b>{post.title}</b></h1>
                 <img src={post.url} alt='' />
+                <h3>{post.description}</h3>
+
+                <input type="submit" value="Edit" onClick={(e) => (console.log('button working'))} />
+                <input type="submit" value="Delete" />
               </div>
             )
           })
           : <p>Loading...</p>
         }
-
       </div>
     )
   }
