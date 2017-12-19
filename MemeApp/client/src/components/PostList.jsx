@@ -1,5 +1,7 @@
 // This is the page for the news feed
 import React, { Component } from 'react';
+import { Section, Title, SubTitle } from 'reactbulma'
+
 
 class PostList extends Component {
   constructor(props) {
@@ -28,17 +30,17 @@ class PostList extends Component {
   renderPosts() {
     return this.state.postList.map(post => {
       return (
-        <div className="post" key={post.id}>
+        <Section className="post" key={post.id}>
         <h1>{post.username}</h1>
-          <h2><b>{post.title}</b></h2>
-          <p>{post.description}</p>
+          <Title is='1'><b>{post.title}</b></Title>
+          <SubTitle is='1'>{post.description}</SubTitle>
           {
             post.url ?
             <img src={`${post.url}`} alt="" width={500} height={400} mode='fit' />
             : <p>No Image</p>
 
           }
-        </div>
+        </Section>
       )
     })
   }

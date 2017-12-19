@@ -112,8 +112,12 @@ class Dashboard extends Component {
         <AddPostForm addPost={this.addPost} />
 
         <Section>
-          <h1>Hello {this.state.current_user}</h1>
-          <h1>You have {this.state.myPosts.length} posts!</h1>
+          <Title is='2' >Hello {this.state.current_user}</Title>
+          {(this.state.myPosts.length == 1) ?
+            <SubTitle is='3'>Congrats on your first post!</SubTitle> :
+            <SubTitle is='3'>You have {this.state.myPosts.length} posts!</SubTitle>
+          }
+          <SubTitle is='3'>Can We Make That {this.state.myPosts.length + 1}?</SubTitle>
         </Section>
 
         {/*Display user's posts*/}
@@ -121,9 +125,9 @@ class Dashboard extends Component {
           this.state.myPosts.map(post => {
             return (
               <Section key={post.id}>
-                <h1><b>{post.title}</b></h1>
+                <Title is='3' spaced><b>{post.title}</b></Title>
                 <img src={post.url} alt='' />
-                <h3>{post.description}</h3>
+                <SubTitle is='4' spaced>{post.description}</SubTitle>
 
               {/*Create Edit Functionality*/}
               {this.state.showComponent ? null : <button onClick={this._onButtonClick}>Edit</button>}
