@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Section, Textarea } from 'reactbulma'
+import { Section, Textarea, Hero, Container, Title, SubTitle } from 'reactbulma'
 
 import Auth from '../modules/Auth'
 import AddPostForm from './AddPostForm'

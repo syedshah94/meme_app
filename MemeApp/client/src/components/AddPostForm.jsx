@@ -22,7 +22,7 @@ class AddPostForm extends Component {
 
   render() {
     return (
-      <Section className="form">
+      <div className="form">
         <Field>
           <Control>
             <Input primary name="title" type="text" value={this.state.title} placeholder="Title" onChange={this.handleChange}/>
@@ -46,7 +46,7 @@ class AddPostForm extends Component {
             <Button primary type="submit" value="Create Post">Create Post</Button>
           </Control>
         </Field>
-      </Section>
+      </div>
     )
   }
 }

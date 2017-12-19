@@ -9,7 +9,8 @@ import LoginForm from './components/LoginForm';
 import Dashboard from './components/Dashboard';
 
 // Bulma.io
-import { Button, Section } from 'reactbulma'
+import { Button, Section, Textarea, Hero, Container, Title, SubTitle } from 'reactbulma'
+
 
 class App extends Component {
   constructor() {
@@ -87,7 +88,19 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Section medium className="App">
+        <Section className="App">
+          <Hero medium danger bold>
+            <Hero.Body>
+              <Container>
+                <Title>
+                  MEME DREAM
+                </Title>
+                <SubTitle>
+                  Share some memes... or something... please...
+                </SubTitle>
+              </Container>
+            </Hero.Body>
+          </Hero>
           <div className="nav">
             {this.state.auth ? <Link to='/dash'><Button large outlined warning>Dash</Button></Link> : null}
             <Link to='/posts'><Button large outlined primary>Feed</Button></Link>
