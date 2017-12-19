@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-
+import ToggleDisplay from 'react-toggle-display';
 import { Field, Control, Input, Button, Section} from 'reactbulma'
 
 
@@ -8,7 +8,8 @@ class LoginForm extends Component {
     super(props);
     this.state = {
       username: "",
-      password: ""
+      password: "",
+      show: false,
     }
     this.handleChange = this.handleChange.bind(this);
   }
@@ -21,9 +22,16 @@ class LoginForm extends Component {
     });
   }
 
+  handleClick() {
+    this.setState({
+      show: true,
+    });
+  }
+
   render() {
     return (
     <Section medium className="form">
+      <ToggleDisplay show={this.state.show}>You Have Displeased Me With Your Incorrent User/Password Combination :( </ToggleDisplay>
       <label className="label">Username</label>
       <Field groupedCentered>
         <Control>
@@ -40,7 +48,7 @@ class LoginForm extends Component {
 
       <Field groupedCentered onClick={(e) => this.props.handleLoginSubmit(e, this.state)}>
         <Control>
-          <Button medium success type="submit" value="Login">Submit</Button>
+          <Button medium success type="submit" value="Login" onClick={(e) => this.handleClick()}>Submit</Button>
         </Control>
       </Field>
     </Section>

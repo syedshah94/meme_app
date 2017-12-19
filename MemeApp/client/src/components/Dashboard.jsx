@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Section, Textarea, Hero, Container, Title, SubTitle } from 'reactbulma'
+import { Section, Title, SubTitle } from 'reactbulma'
 
 import Auth from '../modules/Auth'
 import AddPostForm from './AddPostForm'
@@ -113,7 +113,7 @@ class Dashboard extends Component {
 
         <Section>
           <Title is='2' >Hello {this.state.current_user}</Title>
-          {(this.state.myPosts.length == 1) ?
+          {(this.state.myPosts.length === 1) ?
             <SubTitle is='3'>Congrats on your first post!</SubTitle> :
             <SubTitle is='3'>You have {this.state.myPosts.length} posts!</SubTitle>
           }

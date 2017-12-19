@@ -9,7 +9,7 @@ import LoginForm from './components/LoginForm';
 import Dashboard from './components/Dashboard';
 
 // Bulma.io
-import { Button, Section, Textarea, Hero, Container, Title, SubTitle } from 'reactbulma'
+import { Button, Section, Hero, Container, Title, SubTitle } from 'reactbulma'
 
 
 class App extends Component {
@@ -81,9 +81,6 @@ class App extends Component {
       })
     }).catch(err => console.log(err));
   }
-
-  // Navbar
-
 
   render() {
     return (
