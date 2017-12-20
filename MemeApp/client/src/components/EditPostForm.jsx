@@ -43,11 +43,13 @@ class EditPostForm extends Component {
           </Control>
         </Field>
 
-        <Field groupedCentered onClick={(e) => this.props.editPost(e, this.state, this.props.post.id)} >
-          <Control>
-            <Button primary type="submit" value="Change Post">Change Post</Button>
-          </Control>
-        </Field>
+        <ToggleDisplay show={this.props.show}>
+          <Field groupedCentered onClick={(e) => this.props.editPost(e, this.state, this.props.post.id)} >
+            <Control>
+              <Button primary type="submit" value="Change Post" onClick={(e) => this.props.handleShow(e)}>Change Post</Button>
+            </Control>
+          </Field>
+        </ToggleDisplay >
 
         <ToggleDisplay show={this.props.show}>
           <Field groupedCentered onClick={(e) => this.props.handleShow(e)} >
