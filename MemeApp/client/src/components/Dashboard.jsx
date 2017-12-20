@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Field, Control, Input, Textarea, Button, Section, Title, SubTitle} from 'reactbulma'
+import { Button, Section, Title, SubTitle} from 'reactbulma'
 
 
 import Auth from '../modules/Auth'
@@ -121,6 +121,7 @@ class Dashboard extends Component {
           }
           <SubTitle is='3'>Can We Make That {this.state.myPosts.length + 1}?</SubTitle>
         </Section>
+        <hr />
 
         {/*Display user's posts*/}
         {this.state.myPosts ?
@@ -131,11 +132,7 @@ class Dashboard extends Component {
                 <img src={post.url} alt='' />
                 <SubTitle is='4' spaced>{post.description}</SubTitle>
 
-              {/*Create Edit Functionality*/}
-              {/*{this.state.showComponent ? null : <Button info onClick={this.handleShow}>Edit</Button>}*/}
-              {/*{this.state.showComponent ? <EditPostForm post={post} showComponent={this.state.showComponent} editPost={this.editPost} handleShow={this.handleShow} /> : null}*/}
-
-                {this.state.show ? null : <Button info onClick={() => this.handleShow()}>Edit</Button>}
+                {this.state.show ? null : <Button info onClick={() => this.handleShow()}>Edit Mode</Button>}
                 {this.state.show ? <EditPostForm post={post} editPost={this.editPost} handleShow={this.handleShow} show={this.state.show} /> : null}
 
                 <Button danger onClick={() => this.deletePost(post.id)}>Delete</Button>

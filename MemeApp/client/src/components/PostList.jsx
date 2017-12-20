@@ -24,7 +24,7 @@ class PostList extends Component {
           postListLoaded: true
         })
       }).catch(err => console.log(err));
-    }, 2800);
+    }, 2500);
   }
 
   renderPosts() {
@@ -32,14 +32,14 @@ class PostList extends Component {
       return (
         <Section className="post" key={post.id}>
         <h1>{post.username}</h1>
-          <Title is='1'><b>{post.title}</b></Title>
-          <SubTitle is='1'>{post.description}</SubTitle>
+          <Title is='2'><b>{post.title}</b></Title>
           {
             post.url ?
             <img src={`${post.url}`} alt="" width={500} height={400} mode='fit' />
             : <p>No Image</p>
 
           }
+          <SubTitle is='4'>{post.description}</SubTitle>
         </Section>
       )
     })
