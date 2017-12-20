@@ -5,9 +5,9 @@ class EditPostForm extends Component {
   constructor(props){
     super(props);
     this.state = {
-      title: '',
-      description: '',
-      url: '',
+      title: this.props.post.title,
+      description: this.props.post.description,
+      url: this.props.post.url,
     }
     this.handleChange = this.handleChange.bind(this);
   }
@@ -41,9 +41,9 @@ class EditPostForm extends Component {
           </Control>
         </Field>
 
-        <Field groupedCentered onClick={(e) => this.props.editPost(e, this.state, this.props.post_id)} >
+        <Field groupedCentered onClick={(e) => this.props.editPost(e, this.state, this.props.post.id)} >
           <Control>
-            <Button primary type="submit" value="Change Post">Change Post Entirely</Button>
+            <Button primary type="submit" value="Change Post">Change Post</Button>
           </Control>
         </Field>
       </div>
