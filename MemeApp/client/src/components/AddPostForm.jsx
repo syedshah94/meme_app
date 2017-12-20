@@ -1,5 +1,6 @@
 import React, { Component } from 'react'
 import { Field, Control, Input, Textarea, Button, Section} from 'reactbulma'
+import ToggleDisplay from 'react-toggle-display';
 
 class AddPostForm extends Component {
   constructor(props){

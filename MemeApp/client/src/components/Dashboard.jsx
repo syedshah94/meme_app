@@ -1,6 +1,7 @@
 import React, { Component } from 'react'
 import { Field, Control, Input, Textarea, Button, Section, Title, SubTitle} from 'reactbulma'
 
+
 import Auth from '../modules/Auth'
 import AddPostForm from './AddPostForm'
 import EditPostForm from './EditPostForm'
@@ -14,12 +15,13 @@ class Dashboard extends Component {
       postsLoaded: false,
       current_user: null,
       showComponent: false,
+      show: false
     }
-    this._onButtonClick = this._onButtonClick.bind(this);
     this.getUserPosts = this.getUserPosts.bind(this);
     this.addPost = this.addPost.bind(this);
     this.editPost = this.editPost.bind(this);
     this.deletePost = this.deletePost.bind(this);
+    this.handleShow = this.handleShow.bind(this);
   }
 
   componentDidMount() {
@@ -100,10 +102,10 @@ class Dashboard extends Component {
       }).catch(err => console.log(err));
   }
 
-  _onButtonClick() {
-  this.setState({
-    showComponent: true,
-  });
+  handleShow(e) {
+    this.setState({
+      show: !this.state.show
+    });
   }
 
   render() {
@@ -130,8 +132,11 @@ class Dashboard extends Component {
                 <SubTitle is='4' spaced>{post.description}</SubTitle>
 
               {/*Create Edit Functionality*/}
-              {this.state.showComponent ? null : <Button info onClick={this._onButtonClick}>Edit</Button>}
-              {this.state.showComponent ? <EditPostForm post={post} showComponent={this.state.showComponent} editPost={this.editPost} /> : null}
+              {/*{this.state.showComponent ? null : <Button info onClick={this.handleShow}>Edit</Button>}*/}
+              {/*{this.state.showComponent ? <EditPostForm post={post} showComponent={this.state.showComponent} editPost={this.editPost} handleShow={this.handleShow} /> : null}*/}
+
+                {this.state.show ? null : <Button info onClick={() => this.handleShow()}>Edit</Button>}
+                {this.state.show ? <EditPostForm post={post} editPost={this.editPost} handleShow={this.handleShow} show={this.state.show} /> : null}
 
                 <Button danger onClick={() => this.deletePost(post.id)}>Delete</Button>
               </Section>

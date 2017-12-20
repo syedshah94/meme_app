@@ -1,5 +1,7 @@
 import React, { Component } from 'react'
 import { Field, Control, Input, Textarea, Button, Section} from 'reactbulma'
+import ToggleDisplay from 'react-toggle-display';
+
 
 class EditPostForm extends Component {
   constructor(props){
@@ -46,6 +48,14 @@ class EditPostForm extends Component {
             <Button primary type="submit" value="Change Post">Change Post</Button>
           </Control>
         </Field>
+
+        <ToggleDisplay show={this.props.show}>
+          <Field groupedCentered onClick={(e) => this.props.handleShow(e)} >
+            <Control>
+              <Button warning type="submit" value="Change Post">Cancel</Button>
+            </Control>
+          </Field>
+        </ToggleDisplay >
       </div>
     )
   }
