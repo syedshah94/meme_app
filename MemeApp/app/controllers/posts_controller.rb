@@ -26,6 +26,16 @@ class PostsController < ApiController
     end
   end
 
+  def update
+    post = Post.update(params[:id], post_params)
+    render json: {status: "update successful", post: post}
+  end
+
+  def destroy
+    Post.destroy(params[:id])
+    render json: {status: "delete successful"}
+  end
+
   private
   def post_params
     params.require(:post).permit(:title, :description, :url)
