@@ -100,7 +100,7 @@ class App extends Component {
   render() {
     return (
       <Router>
-        <Section className="App">
+        <div className="App">
           <Hero medium danger bold>
             <Hero.Body>
               <Container>
@@ -115,6 +115,7 @@ class App extends Component {
           </Hero>
 
           <ToggleDisplay show={this.state.show}>Sheesh, I Thought You Wouldn't Leave...</ToggleDisplay>
+
         {/*Navigation*/}
           <div className="nav">
             {this.state.auth ? <Link to='/dash'><Button large outlined warning>Dash</Button></Link> : null}
@@ -140,7 +141,7 @@ class App extends Component {
 
           <Route exact path='/dash' render={() => <Dashboard />} />
 
-        </Section>
+        </div>
       </Router>
     );
   }
