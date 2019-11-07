@@ -13,7 +13,7 @@ Uses of React router, Bulma.io adjusted to be compatible with React, responsive 
 
 Here's a walkthrough of implemented user stories:
 
-<img src='walkthrough.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
+<img src='meme-app.gif' title='Video Walkthrough' width='' alt='Video Walkthrough' />
 
 GIFs created with [LiceCap](http://www.cockos.com/licecap/).
 
