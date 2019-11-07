@@ -1,7 +1,7 @@
 # meme_app
-Meme Review App (React Front-End / Rails Back-End)
+Meme Sharing App (React Front-End / Rails Back-End)
 
-This is a responsive application for the web design to allow users to share their favorite memes or jokes with low-effort with a minimalistic design.
+A responsive single-page application where users share memes with ease under a minimalistic design.
 
 ##
 
